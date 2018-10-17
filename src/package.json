@@ -1,0 +1,30 @@
+{
+  "name": "dhardena",
+  "version": "1.0.0",
+  "description": "Blockchain based p2p lending platform.",
+  
+  "dependencies": {
+    "pg": "^7.5.0",
+    "body-parser": "1.18.3",
+    "cookie-parser": "1.4.3",
+    "debug": "4.1.0",
+    "express": "4.16.4",
+    "jade": "~1.9.1",
+    "morgan": "1.9.1",
+    "serve-favicon": "2.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "supervisor ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ObboyLab/DharDena.git"
+  },
+  "author": "shajal ahamed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ObboyLab/DharDena/issues"
+  },
+  "homepage": "https://github.com/ObboyLab/DharDena#readme"
+}
