@@ -4,8 +4,8 @@ CREATE TABLE `Dhar`.`ActiveInvestment` (
   `investor_id` INT NOT NULL,
   `open_investment` DECIMAL(14,4) NOT NULL,
   PRIMARY KEY (`investment_id`),
-  INDEX `load_id_idx` (`loan_id` ASC) VISIBLE,
-  CONSTRAINT `load_id`
+  INDEX `loan_id_idx` (`loan_id` ASC) VISIBLE,
+  CONSTRAINT `loan_id`
     FOREIGN KEY (`loan_id`)
     REFERENCES `Dhar`.`ActiveLoans` (`loan_id`)
     ON DELETE NO ACTION
