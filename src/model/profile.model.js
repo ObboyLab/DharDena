@@ -1,4 +1,4 @@
-module.exports = (connection, Sequelize){
+module.exports = (connection, Sequelize) => {
     const Profile = connection.define({
         uuid : {
             type : Sequelize.UUID,
