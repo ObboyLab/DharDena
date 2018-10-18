@@ -37,4 +37,5 @@ module.exports = (connection, Sequelize) => {
         },
 
     });
+    return Profile;
 }

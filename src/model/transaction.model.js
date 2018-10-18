@@ -23,5 +23,7 @@ module.exports = (connection, Sequelize) => {
         from_account_id : {
             type : Sequelize.UUID 
         }
-    })
+    });
+
+    return Transaction;
 }
