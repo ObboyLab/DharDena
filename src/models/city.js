@@ -1,14 +1,13 @@
-module.exports = (connection, Sequelize) => {
-    const City = connection.define({
-        uuid : {
-            type : Sequelize.UUID,
-            defaultValue: Sequelize.UUIDV1,
-            primaryKey: true
-        },
-        city_name : {
-            type : Sequelize.String
-        }
-    });
-
-    return City;
-}
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  const City = sequelize.define('City', {
+    city_name: {
+      type : DataTypes.STRING,
+      allowNull : false
+    }
+  }, {});
+  City.associate = function(models) {
+    // associations can be defined here
+  };
+  return City;
+};

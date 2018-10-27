@@ -1,23 +1,26 @@
 
 
-const User = require('../models').user;
+const User = require('../models').User;
 // Post a User
 module.exports = {
     create(req, res) {	
-	// Save to MySQL database
-
-	User.create({ 
+    // Save to MySQL database
+    console.log(req.body);
+    return	User.create({ 
 	  email: req.body.email,
 	  password: req.body.password
-	}).then(user => {		
+	}).then(user => {	
+        console.log(user);	
 		// Send created user to client
         res.send(user);
     });
 },
 // FETCH all Customers include Addresses
     findAll (req, res) {
-    User.findAll()
-  .then(users => {
+        
+    return User.findAll()
+   .then(users => {
+      console.log(users);
     // We don't need spread here, since only the results will be returned for select queries
     res.send(users);
   });
