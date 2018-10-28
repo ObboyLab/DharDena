@@ -5,8 +5,8 @@ const User = require('../models').User;
 module.exports = {
     create(req, res) {	
     // Save to MySQL database
-    console.log(req.body);
-    return	User.create({ 
+    
+    User.create({ 
 	  email: req.body.email,
 	  password: req.body.password
 	}).then(user => {	
@@ -18,7 +18,7 @@ module.exports = {
 // FETCH all Customers include Addresses
     findAll (req, res) {
         
-    return User.findAll()
+    User.findAll()
    .then(users => {
       console.log(users);
     // We don't need spread here, since only the results will be returned for select queries
@@ -56,6 +56,6 @@ module.exports = {
         res.json({ deleted : 'yes'}).send();
       });
 }
-}
+};
 
 

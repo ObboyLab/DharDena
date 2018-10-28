@@ -1,6 +1,8 @@
-
-const  user = require('./user');
-
+const user = require('./user');
+const city = require('./city');
+const profile = require('./profile');
 module.exports = {
-  user
+    user,
+    city,
+    profile
 };
