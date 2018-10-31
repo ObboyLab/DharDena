@@ -4,6 +4,7 @@ const userController = require('../controllers').user;
 const cityController = require('../controllers').city;
 const profileController = require('../controllers').profile;
 const transactionController = require('../controllers').transaction;
+const repaymentController = require('../controllers').repayment;
 
 
 
@@ -42,7 +43,16 @@ router.delete('/api/profile/:user_id', profileController.deleteProfile);
 /* Transaction Router */
 
 router.get('/api/transaction', transactionController.findAll);
-router.post('/api/profile', transactionController.create);
+router.post('/api/transaction', transactionController.create);
+
+
+/* Repayment Router */
+router.get('/api/repayment', repaymentController.findAll);
+router.post('/api/repayment', repaymentController.create);
+
+/* Active load Router */
+
+/* Investor Investment Router */
 
 
 module.exports = router;
