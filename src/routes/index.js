@@ -5,6 +5,8 @@ const cityController = require('../controllers').city;
 const profileController = require('../controllers').profile;
 const transactionController = require('../controllers').transaction;
 const repaymentController = require('../controllers').repayment;
+const investorInvestmentController = require('../controllers').investor_investment;
+const activeLoanController = require('../controllers').active_loan;
 
 
 
@@ -50,9 +52,14 @@ router.post('/api/transaction', transactionController.create);
 router.get('/api/repayment', repaymentController.findAll);
 router.post('/api/repayment', repaymentController.create);
 
-/* Active load Router */
+/* Active loan Router */
+router.get('/api/active_loan', activeLoanController.findAll);
+router.post('/api/active_loan', activeLoanController.create);
+
 
 /* Investor Investment Router */
+router.get('/api/investor_investment', investorInvestmentController.findAll);
+router.post('/api/investor_investment', investorInvestmentController.create);
 
 
 module.exports = router;
