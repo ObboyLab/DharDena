@@ -14,7 +14,9 @@
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "sequelize": "^4.38.0",
-    "mysql2":"1.6.1"
+    "mysql2":"1.6.1",
+    "bcrypt":"3.0.2",
+    "jsonwebtoken": "8.3.0"
 },
   "author": "shajalahamedcse@gmail.com",
   "license": "ISC"

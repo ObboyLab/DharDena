@@ -5,6 +5,7 @@ const transaction = require('./transaction');
 const repayment = require('./repayment');
 const investor_investment = require('./investorinvestment');
 const active_loan = require('./activeloan');
+
 module.exports = {
     user,
     city,
@@ -13,4 +14,5 @@ module.exports = {
     repayment,
     investor_investment,
     active_loan
+
 };

@@ -18,9 +18,9 @@ router.get('/', function(req, res, next) {
 
 
 /* user Router */
-router.get('/api/user', userController.findAll);
-router.get('/api/user/:email', userController.findOne);
-router.post('/api/user', userController.create);
+
+router.post('/api/user', userController.register);
+router.post('/api/user/login', userController.login);
 router.put('/api/user/:email', userController.updateUserEmail);
 router.delete('/api/user/:email', userController.deleteUser);
 
