@@ -6,8 +6,11 @@ const User = require('../models').User;
 // FETCH all Customers include Addresses
 module.exports={
 
-
- updateUserEmail(req, res) {
+    findAll(req,res){
+        User.findAll().then(users => res.send(users));
+    }
+    ,
+    updateUserEmail(req, res) {
     User.findOne(
         {where : {email : req.params.email}}
     )
@@ -52,8 +55,8 @@ module.exports={
                 expiresIn: '6h'
             });
             res.send({
-                success: true,
-                data: { token }
+                auth: true,
+                token:  token 
             });
         })
         .catch(err => {

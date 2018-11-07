@@ -7,7 +7,7 @@ const transactionController = require('../controllers').transaction;
 const repaymentController = require('../controllers').repayment;
 const investorInvestmentController = require('../controllers').investor_investment;
 const activeLoanController = require('../controllers').active_loan;
-
+const authController = require('../controllers').auth_controll;
 
 
 /* GET home page. */
@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 
 
 /* user Router */
-
+router.get('/api/user',authController.checkAuth,userController.findAll);
 router.post('/api/user', userController.register);
 router.post('/api/user/login', userController.login);
 router.put('/api/user/:email', userController.updateUserEmail);
