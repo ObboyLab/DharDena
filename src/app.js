@@ -14,7 +14,8 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -27,10 +28,10 @@ app.use('/', indexRouter);
 
 
 
-// Initialize Passport and restore authentication state, if any, from the
-// session.
-app.use(passport.initialize());
-app.use(passport.session());
+
+
+
+
 
 
 

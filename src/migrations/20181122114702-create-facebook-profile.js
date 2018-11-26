@@ -1,27 +1,18 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Repayments', {
+    return queryInterface.createTable('FacebookProfiles', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      from_active_loan_id: {
-        type: Sequelize.INTEGER
+      profileId: {
+        type: Sequelize.STRING
       },
-      to_investor_investment_id: {
-        type: Sequelize.INTEGER
-      },
-      amount: {
-        type: Sequelize.DOUBLE
-      },
-      from_active_loan_balance: {
-        type: Sequelize.DOUBLE
-      },
-      to_investor_investment_balance: {
-        type: Sequelize.DOUBLE
+      name: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +25,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Repayments');
+    return queryInterface.dropTable('FacebookProfiles');
   }
 };
