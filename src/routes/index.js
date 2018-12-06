@@ -13,24 +13,39 @@ var passport = require('passport');
 
 // serialize and deserialize
 passport.serializeUser(function(user, done) {
-  console.log('serializeUser: ' + user.id);
-  done(null, user.id);
+  console.log('serializeUser: ' + user);
+  done(null, user);
 });
-passport.deserializeUser(function(id, done) {
- 
-     done(null, user);
+passport.deserializeUser(function(user, done) {
+  console.log("deserial:"+ user);
+  done(null, user);
 });
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.json({'response' : "Hi"});
+router.get('/', function (req, res) {
+  var html = "<ul>\
+    <li><a href='/auth/facebook'>facebook</a></li>\
+    <li><a href='/logout'>logout</a></li>\
+  </ul>";
+
+  // dump the user for debugging
+  if (req.isAuthenticated()) {
+    html += "<p>authenticated as user:</p>"
+    html += "<pre>" + JSON.stringify(req.user, null, 4) + "</pre>";
+  }
+
+  res.send(html);
 });
 
-
+router.get('/logout', function(req, res){
+  console.log('logging out');
+  req.logout();
+  res.redirect('/');
+});
 
 /* user Router */
-router.get('/api/user',userController.findAll);
+router.get('/api/user',ensureAuthenticated,userController.findAll);
 router.post('/api/user', userController.register);
 router.post('/api/user/login', userController.login);
 router.put('/api/user/:email', userController.updateUserEmail);
@@ -83,18 +98,20 @@ router.get('/account', ensureAuthenticated, function(req, res){
 
 router.get('/auth/facebook',
 
-  passport.authenticate('facebook'),
-  function(req, res){
+  passport.authenticate('facebook')
+  /*function(req, res){
     console.log(req);
-  });
+  }*/
+  );
 router.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/' }),
   function(req, res) {
-    res.redirect('/account');
+    res.redirect('/');
   });
 
 // test authentication
 function ensureAuthenticated(req, res, next) {
+  console.log(req.isAuthenticated());
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/');
 }
