@@ -8,11 +8,15 @@ var swaggerUi = require('swagger-ui-express');
 var swaggerDocument = require('./swagger.json');
 
 var indexRouter = require('./routes/index');
-
+const session = require('express-session');
 
 
 
 var app = express();
+//new 
+app.use(session({
+  secret: 'mysecret'
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());

@@ -17,7 +17,8 @@ module.exports = passport.use(new FacebookStrategy({
             })
             .then(exists =>{
                 if(exists) {
-                    
+                    console.log("in auth")
+                    //console.log( exists);
                     done(null, exists);
                 }else{
                     console.log(parseInt(profile.id));
