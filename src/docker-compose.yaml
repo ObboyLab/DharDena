@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  mysql:
+    build: ./mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    # volumes:
+    #   - ./mysql/data:/var/lib/mysql
+    healthcheck:
+      test: "exit 0"
+  dhardena:
+    build: ./
+    depends_on:
+      - mysql
+    environment:
+      - NODE_ENV=production
+      - DHARDENA_PORT=3000
+      - DB_USERNAME=budgeteala
+      - DB_PASSWORD=budgeteala
+      - DB_NAME=dhardena
+      - DB_HOST=mysql
+      - DB_LOGGING=false
+      - DB_DIALECT=mysql
+    volumes:
+      - ./app:/usr/src/app
+    ports:
+      -  5000:5000
+      -  9229:9229
